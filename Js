@@ -1,0 +1,24 @@
+var filmesAdicionados = [];
+
+function adicionarFilme() {
+  var campoFilmeFavorito = document.querySelector("#filme");
+  var filmeFavorito = campoFilmeFavorito.value;
+
+  if (filmesAdicionados.includes(filmeFavorito)) {
+    alert("Filme já adicionado");
+  } else if (filmeFavorito.endsWith(".jpg")) {
+    listarFilmesNaTela(filmeFavorito);
+    filmesAdicionados.push(filmeFavorito);
+  } else {
+    alert("Imagem inválida");
+  }
+
+  campoFilmeFavorito.value = "";
+}
+
+function listarFilmesNaTela(filme) {
+  var listaFilmes = document.querySelector("#listaFilmes");
+  var elementoFilme = "<img src=" + filme + ">";
+  listaFilmes.innerHTML = listaFilmes.innerHTML + elementoFilme;
+}
+
